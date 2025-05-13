@@ -365,7 +365,7 @@ class StartupWidget(QWidget):
         self.player.setAudioOutput(self.audio_output)
 
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        music_path = os.path.join(current_dir, "startup.mp3")
+        music_path = os.path.join(current_dir, "assets/sounds/startup.mp3")
         music_url = QUrl.fromLocalFile(music_path)
 
         self.player.setSource(music_url)
@@ -472,7 +472,7 @@ class SettingsDialog(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Settings")
-        self.setWindowIcon(QIcon("icon.ico"))
+        self.setWindowIcon(QIcon("assets/images/icon.ico"))
         self.setFixedSize(280, 140)
 
         layout = QFormLayout()
@@ -604,7 +604,7 @@ class GameWidget(QWidget):
         self.bg_music_player = QMediaPlayer()
         self.bg_music_output = QAudioOutput()
         self.bg_music_player.setAudioOutput(self.bg_music_output)
-        bg_music_path = os.path.abspath("game_music.mp3")
+        bg_music_path = os.path.abspath("assets/sounds/game_music.mp3")
         self.bg_music_player.setSource(QUrl.fromLocalFile(bg_music_path))
         self.bg_music_output.setVolume(0.3)
         self.bg_music_player.setLoops(QMediaPlayer.Loops.Infinite)
@@ -613,7 +613,7 @@ class GameWidget(QWidget):
         self.game_over_player = QMediaPlayer()
         self.game_over_output = QAudioOutput()
         self.game_over_player.setAudioOutput(self.game_over_output)
-        game_over_path = os.path.abspath("game_over.mp3")
+        game_over_path = os.path.abspath("assets/sounds/game_over.mp3")
         self.game_over_player.setSource(QUrl.fromLocalFile(game_over_path))
         self.game_over_output.setVolume(0.7)
 
@@ -862,7 +862,7 @@ class MainWindow(QWidget):
         self.setWindowTitle("Snake Game")
         self.setFixedSize(800, 600)
         self.setStyleSheet("background-color: rgba(10,10,20,1);")
-        self.setWindowIcon(QIcon("icon.ico"))
+        self.setWindowIcon(QIcon("assets/images/icon.ico"))
 
         self.stack = QStackedLayout(self)
 
@@ -870,7 +870,7 @@ class MainWindow(QWidget):
         self.audio_output = QAudioOutput(self)
         self.startup_music_player.setAudioOutput(self.audio_output)
 
-        startup_music_path = os.path.abspath("startup.mp3")
+        startup_music_path = os.path.abspath("assets/sounds/startup.mp3")
         self.startup_music_player.setSource(QUrl.fromLocalFile(startup_music_path))
         self.startup_music_player.setLoops(QMediaPlayer.Loops.Infinite)
         self.startup_music_player.play()
